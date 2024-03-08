@@ -1,0 +1,21 @@
+ Algorithm for Problem 1:
+
+function createNewSetWithoutCommonElements(set1, set2) {
+  const set1Set = new Set(set1);
+  const set2Set = new Set(set2);
+  //remove common elements between sets
+  const uniqueSet1 = new Set([...set1Set].filter(element => ! 
+  set2Set.has(element)));
+  
+  const uniqueSet2 = new Set([...set2Set].filter(element => ! 
+  set1Set.has(element)));
+  
+  const newSet = new Set([...uniqueSet1, ...uniqueSet2]);
+  
+  return Array.from(newSet);
+}
+
+const set1 = [3, 1, 7, 9];
+const set2 = [2, 4, 1, 9, 3];
+
+const result = createNewSetWithoutCommonElements(set1, set2);
